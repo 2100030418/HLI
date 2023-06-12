@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href='/static/users.css' />
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+   background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(118,201,111,1) 0%, rgba(12,166,169,0.768032212885154) 22%, rgba(11,178,83,0.7176120448179272) 51%, rgba(1,220,133,1) 85%, rgba(0,255,252,0.012558539040616212) 100%);
+}
+.count{
+     margin-top: 7%;
+   margin-left: 20%;
+}
+.header_fixed {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #adacac;
+    margin-left: 16%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.header_fixed {
+    max-height: 100vh;
+    width: 70%;
+    overflow: auto;
+    border: 1px solid #dddddd;
+    margin-top : 6%;
+}
+
+.header_fixed thead th {
+    position: sticky;
+    top: 0;
+    background-color: blue;
+    color: #e6e7e8;
+    font-size: 15px;
+}
+
+th,
+td {
+    border-bottom: 1px solid #dddddd;
+    padding: 2px 20px;
+    font-size: 14px;
+    text-align:center;
+}
+
+td img {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    border: 5px solid #e6e7e8;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr:nth-child(odd) {
+    background-color: #edeef1;
+}
+
+tr:hover td {
+    color: #44b478;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+td button {
+    border: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    background-color: black;
+    color: #e6e7e8;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+
+</style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<div class="wrapper" >
+    <div class="multi_color_border"></div>
+    <div class="top_nav">
+        <div class="left">
+          <div class="logo"><p><span>HLI</span></p></div>
+          <div class="search_bar">
+              <input type="text" placeholder="Search">
+          </div>
+
+      </div>
+        <div class="mid">
+        <div class="logo"><p><span>ADMIN PORTAL</span></p></div>
+          </div>
+      <div class="right">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="logout">Logout</a></li>
+          <li><a href="#">HLI</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom_nav">
+      <ul>
+        <li><a href="admin">Home</a></li>
+        <li><a href="users">Users</a></li>
+        <li><a href="addpolicy">Add Policy</a></li>
+
+        <li><a href="policies">Policies</a></li>
+
+      </ul>
+  </div>
+
+
+</div>
+    <div class="count">
+        <h3>Number of Users are: {{count}}</h3>
+        <h3>Download the Users data <a href="download">Click Here</a></h3>
+    </div>
+
+
+
+
+
+
+
+
+
+     <div class="header_fixed">
+        <table>
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>Image</th>
+                    <th>Registration Time</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Manage User</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for s in b %}
+                <tr>
+                    <td>user</td>
+                    <td><img src= /></td>
+                    <td>{{ s['Date'] }}</td>
+                    <td>{{ s['Email'] }}</td>
+                    <td>{{ s['Password'] }}</td>
+                    <td><a href="remove_user/{{ s['Email'] }}" method="POST"><button>REMOVE ACCESS</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

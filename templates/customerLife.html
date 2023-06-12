@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>HLI</title>
+ <link rel="stylesheet" href='/static/users.css' />
+    <link rel="stylesheet" href='/static/policies.css' />
+    <link rel="stylesheet" href='/static/navInsurance.css' />
+</head>
+<style>
+    body{
+
+   background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(118,201,111,1) 0%, rgba(12,166,169,0.768032212885154) 22%, rgba(11,178,83,0.7176120448179272) 51%, rgba(1,220,133,1) 85%, rgba(0,255,252,0.012558539040616212) 100%);
+}
+</style>
+
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<div class="wrapper" >
+    <div class="multi_color_border"></div>
+    <div class="top_nav">
+        <div class="left">
+          <div class="logo"><p><span>HLI</span></p></div>
+          <div class="search_bar">
+              <input type="text" placeholder="Search">
+          </div>
+
+      </div>
+
+      <div class="right">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="contactus">Contact Us</a></li>
+         <li><a href="login">SignUp/Login</a></li>
+          <li><a href="home">HLI</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom_nav">
+      <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="customerLife">Life Insurance</a></li>
+        <li><a href="customerHealth">Health Insurance</a></li>
+
+        <li><a href="#">Policies</a></li>
+
+      </ul>
+  </div>
+</div>
+
+{% for j in c %}
+
+
+ <!--cards -->
+
+<div class="card">
+
+<div class="image">
+   <img src="https://tse1.mm.bing.net/th?id=OIP.XGY8oRrSecT1xwDVFXU6iwHaFR&pid=Api&P=0">
+</div>
+<div class="title">
+ <h1>
+{{ j['Type'] }}</h1>
+</div>
+<div class="des">
+  <p><b>Total Assurance  :</b>RS.{{ j['Premium'] }} <b></b></p><br>
+    <b><h3>Policy Type : {{ j['Discription'] }}</h3></b><br>
+<a href='login'><button>BUY POLICY</button></a>
+</div>
+</div>
+
+
+{% endfor %}
+
+
+</body>
+
+
+</html>

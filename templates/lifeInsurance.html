@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>HLI</title>
+ <link rel="stylesheet" href='/static/users.css' />
+    <link rel="stylesheet" href='/static/policies.css' />
+    <link rel="stylesheet" href='/static/navInsurance.css' />
+</head>
+<style>
+      body{
+
+   background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(118,201,111,1) 0%, rgba(12,166,169,0.768032212885154) 22%, rgba(11,178,83,0.7176120448179272) 51%, rgba(1,220,133,1) 85%, rgba(0,255,252,0.012558539040616212) 100%);
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Ubuntu');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+.payment{
+  background: #f8f8f8;
+  max-width: 360px;
+  margin: 80px auto;
+  height: auto;
+  padding: 35px;
+  padding-top: 70px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.payment h2{
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  color: #0d3c61;
+}
+
+.form .label{
+  display: block;
+  color: #555555;
+  margin-bottom: 6px;
+}
+
+.input{
+  padding: 13px 0px 13px 25px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  outline: none;
+  font-size: 16px;
+  color: #555555;
+}
+
+.card-grp{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-item{
+  width: 48%;
+}
+
+.space{
+  margin-bottom: 20px;
+}
+
+.icon-relative{
+  position: relative;
+}
+
+.icon-relative .fas,
+.icon-relative .far{
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 20px;
+  color: #555555;
+}
+
+.btn{
+  margin-top: 40px;
+  background: #2196F3;
+  padding: 12px;
+  text-align: center;
+  color: #f8f8f8;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.payment-logo{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  text-align: center;
+  line-height: 85px;
+}
+
+.payment-logo:before{
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #2196F3;
+  border-radius: 50%;
+}
+
+.payment-logo p{
+  position: relative;
+  color: #f8f8f8;
+  font-family: 'Baloo Bhaijaan', cursive;
+  font-size: 58px;
+}
+
+
+@media screen and (max-width: 420px){
+  .card-grp{
+    flex-direction: column;
+  }
+  .card-item{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .btn{
+    margin-top: 20px;
+  }
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<div class="wrapper" >
+    <div class="multi_color_border"></div>
+    <div class="top_nav">
+        <div class="left">
+          <div class="logo"><p><span>HLI</span></p></div>
+          <div class="search_bar">
+              <input type="text" placeholder="Search">
+          </div>
+
+      </div>
+          <div class="mid">
+        <div class="logo"><p><span>USER PORTAL</span></p></div>
+          </div>
+      <div class="right">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="contactus">Contact Us</a></li>
+         <li><a href="logout1">Logout</a></li>
+          <li><a href="home1">HLI</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom_nav">
+      <ul>
+        <li><a href="home1">Home</a></li>
+        <li><a href="customerLife">Life Insurance</a></li>
+        <li><a href="healthInsurance">Health Insurance</a></li>
+
+        <li><a href="#">Policies</a></li>
+
+      </ul>
+  </div>
+</div>
+
+{% for j in c %}
+
+
+ <!--cards -->
+
+<div class="card">
+
+<div class="image">
+   <img src="https://tse1.mm.bing.net/th?id=OIP.XGY8oRrSecT1xwDVFXU6iwHaFR&pid=Api&P=0">
+</div>
+<div class="title">
+ <h1>
+{{ j['Type'] }}</h1>
+</div>
+<div class="des">
+<p><b>Total Assurance  :</b>RS.{{ j['Premium'] }} <b></b></p><br>
+    <b><h3>Policy Type : {{ j['Discription'] }}</h3></b><br>
+<button onclick="pay({{ j['Premium'] }})">BUY POLICY</button>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</div>
+</div>
+
+
+{% endfor %}
+
+
+</body>
+
+<script>
+function pay(amt) {
+  var options = {
+    "key": "rzp_test_EdMVW9qTqZS5Cs",
+    "amount": ((amt*3)/100)*100,
+    "currency": "INR",
+    "paymentId":"https://rzp.io/i/fV5ARk9JQ",
+    "Offer id":"https://dashboard.razorpay.com/app/offers/offer_LR161fzQOYab5q",
+    "name": "HLI",
+    "description": "Payment for Order No: 1234",
+    "image": "../static/image/BGR1.png",
+    "handler": function (response) {
+        alert("Payment Success");
+    },
+    "prefill": {
+        "name": "",
+        "email": "",
+        "contact": "+"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#F37254"
+    }
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+}
+
+</script>
+
+
+</html>
